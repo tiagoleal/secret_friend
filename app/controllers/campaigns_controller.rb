@@ -1,3 +1,4 @@
+#/app/controllers/campaigns_controller.rb
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
   
@@ -12,7 +13,7 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = Campaign.new(user: current_user, title: 'New campaign', description: "Describe your campaign...")
 
     respond_to do |format|
       if @campaign.save
@@ -66,7 +67,7 @@ class CampaignsController < ApplicationController
   def is_owner? 
     unless current_user == @campaign.user
       respond_to do |format|  
-        format.json  render json: false, status: :forbidden }
+        format.json  { render json: false, status: :forbidden }
         format.html { redirect_to main_app.root_url }
       end
     end
