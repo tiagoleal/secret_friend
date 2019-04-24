@@ -1,0 +1,9 @@
+I"„(function() {
+  $(document).on('turbolinks:load', function() {
+    return $('.sidenav').sideNav();
+  });
+
+  return;
+
+}).call(this);
+:ET
