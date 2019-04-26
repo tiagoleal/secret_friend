@@ -9,7 +9,8 @@
 # M.toast({html: '<span>Aviso</span><i class="tiny material-icons"  style="margin-left:10px;">error</i>', displayLength: '4000', classes:'orange' })
 $(document).on 'turbolinks:load', ->
   $('.update_campaign input').bind 'blur', ->
-    $('.update_campaign').submit()
+    if $('.update_campaign').val() !=""
+      $('.update_campaign').submit()
 
   $('.update_campaign').on 'submit', (e) ->
     $.ajax e.target.action,
