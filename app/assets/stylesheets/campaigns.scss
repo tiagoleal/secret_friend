@@ -1,7 +1,3 @@
-// Place all the styles related to the Campaigns controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .campaigns{
   margin-top: 4%;
 
@@ -42,6 +38,62 @@
           margin-top: 15%;
           height: 45px;
           padding-top: 5px;
+        }
+      }
+    }
+  }
+
+  .campaign{
+    .row{
+      margin-bottom: 0px;
+    }
+
+    .btn-actions{
+      margin-top: 20px;
+    }
+
+    .members{
+      margin-top: 20px;
+      .member{
+        .icon{
+          color: #aaa;
+          margin-top: 20px;
+        }
+        .opened{
+          color: #4CAF50 !important;
+        }
+      }
+      .add{
+        margin-right: 30px;
+        margin-top: -34px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        i{
+          font-size: 1.4rem;
+          line-height: 35px;
+        }
+      }
+    }
+    .members{
+      .member{
+        .icon{
+          color: #aaa;
+          margin-top: 20px;
+        }
+        .opened{
+          color: #4CAF50 !important;
+        }
+      }
+      .add{
+        margin-right: 30px;
+        margin-top: -34px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        i{
+          font-size: 1.4rem;
+          line-height: 35px;
         }
       }
     }
