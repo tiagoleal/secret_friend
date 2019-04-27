@@ -16595,3 +16595,1153 @@ ActionController::ParameterMissing (param is missing or the value is empty: camp
   
 app/controllers/campaigns_controller.rb:64:in `campaign_params'
 app/controllers/campaigns_controller.rb:15:in `create'
+Started GET "/campaigns" for 172.22.0.1 at 2019-04-26 23:59:18 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by CampaignsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering campaigns/index.html.erb within layouts/application
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."user_id" = $1[0m  [["user_id", 35]]
+  ↳ app/views/campaigns/index.html.erb:9
+  Rendered campaigns/index.html.erb within layouts/application (6.2ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 391ms (Views: 356.0ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for 172.22.0.1 at 2019-04-26 23:59:21 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:14
+  Rendered shared/_navbar.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 69ms (Views: 66.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/campaigns" for 172.22.0.1 at 2019-04-26 23:59:22 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gsjjL+yt2LWMcUYnaUjUytGUJND8FHOnpxx5EriLlmT/eTp441NbQRZfbzyzC1VZWy43EkoRwNQV1wmvrmX6GA==", "commit"=>"Criar Agora"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:19
+  [1m[36mCampaign Create (2.7ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 35], ["title", "New campaign"], ["description", "Describe your campaign..."], ["status", 0], ["created_at", "2019-04-26 23:59:22.998605"], ["updated_at", "2019-04-26 23:59:22.998605"]]
+  ↳ app/controllers/campaigns_controller.rb:19
+  [1m[36mMember Create (1.7ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 69], ["name", "tiago "], ["email", "tiagoleal@gmail.com"], ["created_at", "2019-04-26 23:59:23.003374"], ["updated_at", "2019-04-26 23:59:23.003374"]]
+  ↳ app/controllers/campaigns_controller.rb:19
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:19
+Redirected to http://localhost:3000/campaigns/69
+Completed 302 Found in 52ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-26 23:59:23 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (9.8ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 91ms (Views: 84.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-26 23:59:41 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (4.7ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 74ms (Views: 69.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:01:16 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (5.9ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 79ms (Views: 72.4ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:01:18 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1J7c7yZhG8f4nW+lzCOBB72kFwFwYKFzZeM9mlpykt+YQ7cEss8DhglXhdTWwNyN/A+QAbLbgpwc7nCNJGd5Xw==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"69"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started PUT "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:01:19 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1J7c7yZhG8f4nW+lzCOBB72kFwFwYKFzZeM9mlpykt+YQ7cEss8DhglXhdTWwNyN/A+QAbLbgpwc7nCNJGd5Xw==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"69"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:01:19 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1J7c7yZhG8f4nW+lzCOBB72kFwFwYKFzZeM9mlpykt+YQ7cEss8DhglXhdTWwNyN/A+QAbLbgpwc7nCNJGd5Xw==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"69"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:01:20 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1J7c7yZhG8f4nW+lzCOBB72kFwFwYKFzZeM9mlpykt+YQ7cEss8DhglXhdTWwNyN/A+QAbLbgpwc7nCNJGd5Xw==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"69"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:01:20 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1J7c7yZhG8f4nW+lzCOBB72kFwFwYKFzZeM9mlpykt+YQ7cEss8DhglXhdTWwNyN/A+QAbLbgpwc7nCNJGd5Xw==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"69"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:37:06 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 373ms (ActiveRecord: 8.2ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:44:3: reserved word 'var'):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9: 
+    10:     <%= favicon_link_tag %>
+    11:   </head>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1126246119368196736_70285306310060'
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:37:24 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:44:3: reserved word 'let'):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9: 
+    10:     <%= favicon_link_tag %>
+    11:   </head>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1126246119368196736_70285305542460'
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:37:25 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:44:3: reserved word 'let'):
+     5:     <%= csrf_meta_tags %>
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9: 
+    10:     <%= favicon_link_tag %>
+    11:   </head>
+  
+(execjs):7539:8
+(execjs):7545:14
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___1126246119368196736_70285304702960'
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:37:38 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (4.6ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 380ms (Views: 373.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:38:05 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (7.2ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 79ms (Views: 61.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:38:14 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (5.3ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 72ms (Views: 66.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/members" for 172.22.0.1 at 2019-04-27 00:38:38 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MembersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wMt0ASSHnNDrv5VRB7wUx+/pb6Tu4Px06Yp2nn6vc8iMFh/qsCmEkRp1fyAdX0lNrkLopCxb35uQhzuJALqYSA==", "member"=>{"campaign_id"=>"69", "name"=>"teste", "email"=>"teste@gmail.com"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mMember Create (0.6ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 69], ["name", "teste"], ["email", "teste@gmail.com"], ["created_at", "2019-04-27 00:38:38.289472"], ["updated_at", "2019-04-27 00:38:38.289472"]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:11
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:39:27 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (8.5ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 401ms (Views: 395.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/members" for 172.22.0.1 at 2019-04-27 00:41:55 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MembersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAmjVYcmthAUupmDh8Dg835J/dKV+TkBEs3xoWChtI/I1Mi+E4iuUeVwc/KdI715P+J60ldCGu5rwLy2HrRfDw==", "member"=>{"campaign_id"=>"69", "name"=>"teste2", "email"=>"teste2@gmail.com"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mMember Create (1.0ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 69], ["name", "teste2"], ["email", "teste2@gmail.com"], ["created_at", "2019-04-27 00:41:55.428098"], ["updated_at", "2019-04-27 00:41:55.428098"]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:11
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 11.2ms)
+
+
+Started DELETE "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:42:21 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#destroy as JSON
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:38
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 69]]
+  ↳ app/controllers/campaigns_controller.rb:38
+  [1m[36mMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 69]]
+  ↳ app/controllers/campaigns_controller.rb:38
+  [1m[36mMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 70]]
+  ↳ app/controllers/campaigns_controller.rb:38
+  [1m[36mMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 71]]
+  ↳ app/controllers/campaigns_controller.rb:38
+  [1m[36mCampaign Destroy (0.9ms)[0m  [1m[31mDELETE FROM "campaigns" WHERE "campaigns"."id" = $1[0m  [["id", 69]]
+  ↳ app/controllers/campaigns_controller.rb:38
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:38
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/campaigns" for 172.22.0.1 at 2019-04-27 00:42:21 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering campaigns/index.html.erb within layouts/application
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."user_id" = $1[0m  [["user_id", 35]]
+  ↳ app/views/campaigns/index.html.erb:9
+  Rendered campaigns/index.html.erb within layouts/application (2.3ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 73ms (Views: 69.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:42:23 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Campaign with 'id'=69):
+  
+app/controllers/campaigns_controller.rb:61:in `set_campaign'
+Started GET "/campaigns/69" for 172.22.0.1 at 2019-04-27 00:42:25 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Campaign with 'id'=69):
+  
+app/controllers/campaigns_controller.rb:61:in `set_campaign'
+Started GET "/campaigns" for 172.22.0.1 at 2019-04-27 00:42:30 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering campaigns/index.html.erb within layouts/application
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."user_id" = $1[0m  [["user_id", 35]]
+  ↳ app/views/campaigns/index.html.erb:9
+  Rendered campaigns/index.html.erb within layouts/application (2.9ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 73ms (Views: 69.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/campaigns" for 172.22.0.1 at 2019-04-27 00:42:30 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering campaigns/index.html.erb within layouts/application
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."user_id" = $1[0m  [["user_id", 35]]
+  ↳ app/views/campaigns/index.html.erb:9
+  Rendered campaigns/index.html.erb within layouts/application (2.1ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 169ms (Views: 164.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 172.22.0.1 at 2019-04-27 00:42:32 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:14
+  Rendered shared/_navbar.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 75ms (Views: 73.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/campaigns" for 172.22.0.1 at 2019-04-27 00:42:33 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TNuLdVvTUNkFuJmp7ekqz29/+74uXNfDzLib3yASaKIgrd62pHOt/44y3199CU4twfsLE68wCy9+ZLSam4l3g==", "commit"=>"Criar Agora"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:19
+  [1m[36mCampaign Create (1.5ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 35], ["title", "New campaign"], ["description", "Describe your campaign..."], ["status", 0], ["created_at", "2019-04-27 00:42:33.504402"], ["updated_at", "2019-04-27 00:42:33.504402"]]
+  ↳ app/controllers/campaigns_controller.rb:19
+  [1m[36mMember Create (0.9ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 70], ["name", "tiago "], ["email", "tiagoleal@gmail.com"], ["created_at", "2019-04-27 00:42:33.508337"], ["updated_at", "2019-04-27 00:42:33.508337"]]
+  ↳ app/controllers/campaigns_controller.rb:19
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:19
+Redirected to http://localhost:3000/campaigns/70
+Completed 302 Found in 14ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:42:33 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (5.4ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 94ms (Views: 87.1ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:42:36 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/OnDjvdqdxjq6ibTtGoOE4jXx4ITlELR8J7XCex7PwiwNKhlY8RvWRsgzKKuiVOZyXxAgtEvYT6Jk5oekm7UiA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"70"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+
+
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:42:37 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/OnDjvdqdxjq6ibTtGoOE4jXx4ITlELR8J7XCex7PwiwNKhlY8RvWRsgzKKuiVOZyXxAgtEvYT6Jk5oekm7UiA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"70"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.7ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:43:35 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (5.2ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 66.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:45:15 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (3.7ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 364ms (Views: 360.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/members" for 172.22.0.1 at 2019-04-27 00:45:28 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MembersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gaO6lPBIun5RURMHJNgzHVGdoHZVy7kGpqZvcmGXbvnNftF/ZOaiP6Cb+XY+O26XEDYndpdwmunfqyJlH4KFeQ==", "member"=>{"campaign_id"=>"70", "name"=>"asdadas", "email"=>"teste@gmail.com"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mMember Create (0.8ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 70], ["name", "asdadas"], ["email", "teste@gmail.com"], ["created_at", "2019-04-27 00:45:28.283864"], ["updated_at", "2019-04-27 00:45:28.283864"]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:11
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/members" for 172.22.0.1 at 2019-04-27 00:45:57 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MembersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gaO6lPBIun5RURMHJNgzHVGdoHZVy7kGpqZvcmGXbvnNftF/ZOaiP6Cb+XY+O26XEDYndpdwmunfqyJlH4KFeQ==", "member"=>{"campaign_id"=>"70", "name"=>"sdads", "email"=>"testes@gmail.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mMember Create (0.8ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 70], ["name", "sdads"], ["email", "testes@gmail.com"], ["created_at", "2019-04-27 00:45:57.307990"], ["updated_at", "2019-04-27 00:45:57.307990"]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:11
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/members" for 172.22.0.1 at 2019-04-27 00:46:05 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MembersController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gaO6lPBIun5RURMHJNgzHVGdoHZVy7kGpqZvcmGXbvnNftF/ZOaiP6Cb+XY+O26XEDYndpdwmunfqyJlH4KFeQ==", "member"=>{"campaign_id"=>"70", "name"=>"sdadasdad", "email"=>"teste3@gmail.com"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[36mMember Create (0.7ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 70], ["name", "sdadasdad"], ["email", "teste3@gmail.com"], ["created_at", "2019-04-27 00:46:05.753692"], ["updated_at", "2019-04-27 00:46:05.753692"]]
+  ↳ app/controllers/members_controller.rb:11
+  [1m[35m (76.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:11
+Completed 200 OK in 85ms (Views: 0.5ms | ActiveRecord: 78.4ms)
+
+
+Started GET "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:46:09 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  Rendering campaigns/show.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+  ↳ app/views/campaigns/show.html.erb:54
+  Rendered campaigns/show.html.erb within layouts/application (6.9ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 89ms (Views: 78.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/sidekiq" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/javascripts/dashboard.js" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stylesheets/application.css" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/javascripts/application.js" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/images/status.png" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/images/favicon.ico" for 172.22.0.1 at 2019-04-27 00:47:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:47:50 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:47:55 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:00 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:05 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:10 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:15 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:20 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:25 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:30 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started POST "/campaigns/70/raffle" for 172.22.0.1 at 2019-04-27 00:48:33 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+  ↳ app/controllers/campaigns_controller.rb:49
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 61a25fd4-4201-41e0-a566-570987b35dbb) to Sidekiq(emails) with arguments: #<GlobalID:0x00007fd925ebcd18 @uri=#<URI::GID gid://secret-friend/Campaign/70>>
+Completed 200 OK in 57ms (Views: 0.1ms | ActiveRecord: 12.2ms)
+
+
+  [1m[36mCampaign Load (1.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Performing CampaignRaffleJob (Job ID: 61a25fd4-4201-41e0-a566-570987b35dbb) from Sidekiq(emails) with arguments: #<GlobalID:0x00007fb7d005d810 @uri=#<URI::GID gid://secret-friend/Campaign/70>>
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:9
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:15
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:16
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:22
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:22
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:22
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:15
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:15
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:15
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "members" WHERE "members"."campaign_id" = $1[0m  [["campaign_id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/services/raffle_service.rb:15
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "members" WHERE "members"."token" = $1 LIMIT $2[0m  [["token", "prq6-ueALd2jSlofJ875xQ"], ["LIMIT", 1]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:11
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Update (0.5ms)[0m  [1m[33mUPDATE "members" SET "open" = $1, "token" = $2, "updated_at" = $3 WHERE "members"."id" = $4[0m  [["open", false], ["token", "prq6-ueALd2jSlofJ875xQ"], ["updated_at", "2019-04-27 00:48:33.758184"], ["id", 72]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "members" WHERE "members"."token" = $1 LIMIT $2[0m  [["token", "_l7JDKoykb15Fni2cQmrbA"], ["LIMIT", 1]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:11
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Update (0.7ms)[0m  [1m[33mUPDATE "members" SET "open" = $1, "token" = $2, "updated_at" = $3 WHERE "members"."id" = $4[0m  [["open", false], ["token", "_l7JDKoykb15Fni2cQmrbA"], ["updated_at", "2019-04-27 00:48:33.764102"], ["id", 73]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "members" WHERE "members"."token" = $1 LIMIT $2[0m  [["token", "jTSKHZdM9VkOff7aHUadXw"], ["LIMIT", 1]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:11
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "open" = $1, "token" = $2, "updated_at" = $3 WHERE "members"."id" = $4[0m  [["open", false], ["token", "jTSKHZdM9VkOff7aHUadXw"], ["updated_at", "2019-04-27 00:48:33.768395"], ["id", 74]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "members" WHERE "members"."token" = $1 LIMIT $2[0m  [["token", "1x-gkpeLS7Kz8WXFFSS5XA"], ["LIMIT", 1]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:11
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "open" = $1, "token" = $2, "updated_at" = $3 WHERE "members"."id" = $4[0m  [["open", false], ["token", "1x-gkpeLS7Kz8WXFFSS5XA"], ["updated_at", "2019-04-27 00:48:33.771872"], ["id", 75]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/models/member.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.html.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.html.erb within layouts/mailer (0.7ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.2ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] CampaignMailer#raffle: processed outbound mail in 849.4ms
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Sent mail to tiagoleal@gmail.com (290.6ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Date: Sat, 27 Apr 2019 00:48:34 +0000
+From: from@example.com
+To: tiagoleal@gmail.com
+Message-ID: <5cc3a6e2c77f1_82afc29e6bbf827fb@7afda998cc2e.mail>
+Subject: Nosso Amigo Secreto: New campaign
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5cc3a6e2c3d32_82afc29e6bbf82614";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5cc3a6e2c3d32_82afc29e6bbf82614
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Campaign#raffle
+
+, find me in app/views/campaign_mailer/raffle.text.erb
+
+----==_mimepart_5cc3a6e2c3d32_82afc29e6bbf82614
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Campaign#raffle</h1>
+
+<p>
+  , find me in app/views/campaign_mailer/raffle.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_5cc3a6e2c3d32_82afc29e6bbf82614--
+
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.html.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.html.erb within layouts/mailer (0.1ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.0ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] CampaignMailer#raffle: processed outbound mail in 13.5ms
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Sent mail to teste@gmail.com (57.2ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Date: Sat, 27 Apr 2019 00:48:35 +0000
+From: from@example.com
+To: teste@gmail.com
+Message-ID: <5cc3a6e31bd2b_82afc29e6bbf8298f@7afda998cc2e.mail>
+Subject: Nosso Amigo Secreto: New campaign
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5cc3a6e319ad2_82afc29e6bbf828c1";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5cc3a6e319ad2_82afc29e6bbf828c1
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Campaign#raffle
+
+, find me in app/views/campaign_mailer/raffle.text.erb
+
+----==_mimepart_5cc3a6e319ad2_82afc29e6bbf828c1
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Campaign#raffle</h1>
+
+<p>
+  , find me in app/views/campaign_mailer/raffle.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_5cc3a6e319ad2_82afc29e6bbf828c1--
+
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.html.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.html.erb within layouts/mailer (0.1ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.1ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] CampaignMailer#raffle: processed outbound mail in 14.5ms
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Sent mail to testes@gmail.com (60.6ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Date: Sat, 27 Apr 2019 00:48:35 +0000
+From: from@example.com
+To: testes@gmail.com
+Message-ID: <5cc3a6e32d332_82afc29e6bbf831e4@7afda998cc2e.mail>
+Subject: Nosso Amigo Secreto: New campaign
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5cc3a6e32b3ed_82afc29e6bbf83021";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5cc3a6e32b3ed_82afc29e6bbf83021
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Campaign#raffle
+
+, find me in app/views/campaign_mailer/raffle.text.erb
+
+----==_mimepart_5cc3a6e32b3ed_82afc29e6bbf83021
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Campaign#raffle</h1>
+
+<p>
+  , find me in app/views/campaign_mailer/raffle.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_5cc3a6e32b3ed_82afc29e6bbf83021--
+
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.html.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.html.erb within layouts/mailer (0.0ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.0ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] CampaignMailer#raffle: processed outbound mail in 11.2ms
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Sent mail to teste3@gmail.com (62.3ms)
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Date: Sat, 27 Apr 2019 00:48:35 +0000
+From: from@example.com
+To: teste3@gmail.com
+Message-ID: <5cc3a6e33f066_82afc29e6bbf83397@7afda998cc2e.mail>
+Subject: Nosso Amigo Secreto: New campaign
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5cc3a6e33da13_82afc29e6bbf83285";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5cc3a6e33da13_82afc29e6bbf83285
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Campaign#raffle
+
+, find me in app/views/campaign_mailer/raffle.text.erb
+
+----==_mimepart_5cc3a6e33da13_82afc29e6bbf83285
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Campaign#raffle</h1>
+
+<p>
+  , find me in app/views/campaign_mailer/raffle.html.erb
+</p>
+  </body>
+</html>
+
+----==_mimepart_5cc3a6e33da13_82afc29e6bbf83285--
+
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/jobs/campaign_raffle_job.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/jobs/campaign_raffle_job.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[36mCampaign Update (0.9ms)[0m  [1m[33mUPDATE "campaigns" SET "status" = $1, "updated_at" = $2 WHERE "campaigns"."id" = $3[0m  [["status", 1], ["updated_at", "2019-04-27 00:48:35.373663"], ["id", 70]]
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/jobs/campaign_raffle_job.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb]   ↳ app/jobs/campaign_raffle_job.rb:13
+[ActiveJob] [CampaignRaffleJob] [61a25fd4-4201-41e0-a566-570987b35dbb] Performed CampaignRaffleJob (Job ID: 61a25fd4-4201-41e0-a566-570987b35dbb) from Sidekiq(emails) in 1653.43ms
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:35 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:40 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/stats" for 172.22.0.1 at 2019-04-27 00:48:45 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/busy" for 172.22.0.1 at 2019-04-27 00:48:49 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/scheduled" for 172.22.0.1 at 2019-04-27 00:48:56 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/retries" for 172.22.0.1 at 2019-04-27 00:48:57 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/sidekiq/queues" for 172.22.0.1 at 2019-04-27 00:48:58 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:49:17 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WB+QFp50155BGA3NeuWE0I0LKya9JHtiLmvBFXuTbDQUwvv9CtrP37DS57xgBtlazKCsJn+fWI1XZowCBYaHtA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"70"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:49:23 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WB+QFp50155BGA3NeuWE0I0LKya9JHtiLmvBFXuTbDQUwvv9CtrP37DS57xgBtlazKCsJn+fWI1XZowCBYaHtA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"30/04/2019", "event_hour"=>"", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"70"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.6ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:49:26 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WB+QFp50155BGA3NeuWE0I0LKya9JHtiLmvBFXuTbDQUwvv9CtrP37DS57xgBtlazKCsJn+fWI1XZowCBYaHtA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"30/04/2019", "event_hour"=>"09:49 PM", "location"=>"", "description"=>"Describe your campaign..."}, "id"=>"70"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.5ms)
+
+
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:49:35 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WB+QFp50155BGA3NeuWE0I0LKya9JHtiLmvBFXuTbDQUwvv9CtrP37DS57xgBtlazKCsJn+fWI1XZowCBYaHtA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"30/04/2019", "event_hour"=>"09:49 PM", "location"=>"unisc", "description"=>"Describe your campaign..."}, "id"=>"70"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/campaigns/70" for 172.22.0.1 at 2019-04-27 00:49:41 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#update as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WB+QFp50155BGA3NeuWE0I0LKya9JHtiLmvBFXuTbDQUwvv9CtrP37DS57xgBtlazKCsJn+fWI1XZowCBYaHtA==", "campaign"=>{"title"=>"New campaign", "event_date"=>"30/04/2019", "event_hour"=>"09:49 PM", "location"=>"unisc", "description"=>"tche linux"}, "id"=>"70"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Unpermitted parameters: :event_date, :event_hour, :location
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[36mCampaign Update (0.6ms)[0m  [1m[33mUPDATE "campaigns" SET "description" = $1, "updated_at" = $2 WHERE "campaigns"."id" = $3[0m  [["description", "tche linux"], ["updated_at", "2019-04-27 00:49:41.852496"], ["id", 70]]
+  ↳ app/controllers/campaigns_controller.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/campaigns_controller.rb:29
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/campaigns/70/raffle" for 172.22.0.1 at 2019-04-27 00:50:38 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/campaigns/70/raffle" for 172.22.0.1 at 2019-04-27 00:50:39 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.5ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/campaigns/70/raffle" for 172.22.0.1 at 2019-04-27 00:50:40 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CampaignsController#raffle as JSON
+  Parameters: {"id"=>"70"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ /box/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCampaign Load (0.4ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:61
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/campaigns_controller.rb:69
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
