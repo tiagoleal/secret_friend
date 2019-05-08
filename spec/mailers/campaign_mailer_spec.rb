@@ -18,7 +18,7 @@ RSpec.describe CampaignMailer, type: :mailer do
     end
 
     it 'body have member name' do
-      expect(@email.body.encoded).to match(@match.name)
+      expect(@email.body.encoded).to match(@member.name)
     end
 
     it 'body have campaign creator name' do
