@@ -25,10 +25,6 @@ RSpec.describe CampaignMailer, type: :mailer do
       expect(@email.body.encoded).to match(@campaign.user.name)
     end
 
-    it 'body have friend name' do
-      expect(@email.body.encoded).to match(@friend.name)
-    end
-
     it 'body have member link to set open' do
       expect(@email.body.encoded).to match("/members/#{@member.token}/opened")
     end
