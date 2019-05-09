@@ -67,8 +67,6 @@ jobs:
           echo Failed waiting for Postgres && exit 1
 
       # Database setup
-      # - run: bundle exec rails db:drop db:create db:migrate
-      # - run: bundle exec rails db:schema:load
       - run: bundle exec rails db:create db:schema:load --trace
       - run: bundle exec rails db:migrate
     
@@ -80,7 +78,7 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
-            bundle exec rails rspec \
+            bundle exec rspec \
               --format progress \
               --format RspecJunitFormatter \
               --out /tmp/test-results/rspec.xml \
