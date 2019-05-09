@@ -24,6 +24,7 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: secret_friend_test
+          DATABASE_URL: "postgres://postgres@localhost:5432/secret_friend_test"
           
 
     working_directory: ~/repo
@@ -59,9 +60,7 @@ jobs:
       # - run: bundle exec rails db:schema:load
       - run: bundle exec rails db:create db:schema:load --trace
       - run: bundle exec rails db:migrate
-        environment:
-          DATABASE_URL: "postgres://postgres@localhost:5432/secret_friend_test"
-
+    
       # run tests!
       - run:
           name: run tests
