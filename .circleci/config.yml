@@ -28,5 +28,5 @@ jobs:
           command: |
             bundle exec rails db:create db:schema:load --trace
             bundle exec rails db:migrate
-        environment:
-          DATABASE_URL: "postgres://ubuntu@localhost:5432/secret_friend_test"
+      environment:
+        DATABASE_URL: "postgres://ubuntu@localhost:5432/secret_friend_test"
