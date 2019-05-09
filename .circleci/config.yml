@@ -67,8 +67,8 @@ jobs:
       #     echo Failed waiting for Postgres && exit 1
 
       # Database setup
-      - run: bundle exec rails db:create db:schema:load --trace
-      - run: bundle exec rails db:migrate
+      - run: bundle exec rails db:drop db:create db:migrate db:schema:load --trace
+      # - run: bundle exec rails db:migrate
     
       # run tests!
       - run:
