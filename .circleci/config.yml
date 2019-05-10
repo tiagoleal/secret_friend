@@ -24,7 +24,6 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: secret_friend_test
-          # DATABASE_URL: "postgres://postgres@localhost:5432/secret_friend_test"
           
 
     working_directory: ~/repo
@@ -39,10 +38,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      # - run:
-      #     name: install dependencies
-      #     command: |
-      #       bundle install --jobs=4 --retry=3 --path vendor/bundle
       # Bundle install dependencies
       - run:
           name: Install dependencies
@@ -55,20 +50,8 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # - run:
-      #   name: Waiting for Postgres to be ready
-      #   command: |
-      #     for i in `seq 1 10`;
-      #     do
-      #       nc -z localhost 5432 && echo Success && exit 0
-      #       echo -n .
-      #       sleep 1
-      #     done
-      #     echo Failed waiting for Postgres && exit 1
-
       # Database setup
       - run: bundle exec rails db:drop db:create db:migrate db:schema:load --trace
-      # - run: bundle exec rails db:migrate
     
       # run tests!
       - run:
@@ -91,4 +74,3 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
-    
