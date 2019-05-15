@@ -12,7 +12,7 @@ describe RaffleService do
         create(:member, campaign: @campaign)
         create(:member, campaign: @campaign)
         create(:member, campaign: @campaign)
-        @campaign.reload
+        @campaign = Campaign.last
 
         @results = RaffleService.new(@campaign).call
       end
