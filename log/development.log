@@ -27397,3 +27397,4 @@ Processing by CampaignsController#show as HTML
 Completed 200 OK in 70ms (Views: 61.9ms | ActiveRecord: 2.1ms)
 
 
+  [1m[36mMember Load (1.3ms)[0m  [1m[34mSELECT  "members".* FROM "members" ORDER BY "members"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]

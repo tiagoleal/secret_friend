@@ -6,6 +6,8 @@ RSpec.describe MembersController, type: :controller do
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
     @current_user = FactoryBot.create(:user)
+    request.env["HTTP_ACCEPT"] = 'application/json'
+    @campaign = create(:campaign, user: @current_user)
     sign_in @current_user
   end
 
@@ -13,8 +15,6 @@ RSpec.describe MembersController, type: :controller do
   describe "POST #create" do
    
     before(:each) do
-      request.env["HTTP_ACCEPT"] = 'application/json'
-      @campaign = create(:campaign, user: @current_user)
       @new_member_attributes = attributes_for(:member, campaign: @campaign)
       post :create, params: {member: @new_member_attributes}
     end
@@ -24,10 +24,7 @@ RSpec.describe MembersController, type: :controller do
   end
 
   describe "GET #destroy" do
-    before(:each) do
-      request.env["HTTP_ACCEPT"] = 'application/json'
-    end
-    
+        
     context "Delete Member of the campaign" do
       it "returns http forbidden" do
         member = create(:member)
@@ -42,20 +39,15 @@ RSpec.describe MembersController, type: :controller do
   
   describe "PUT #update" do
 
-    before(:each) do
-      @new_member_attributes = attributes_for(:member)
-      request.env["HTTP_ACCEPT"] = 'application/json'
-    end
-
     context "edit attributes of the member" do
       before(:each) do 
-        campaign = create(:campaign, user: @current_user)
-        member = create(:member, campaign:campaign)
+        member = create(:member, campaign: @campaign)
+        @new_member_attributes = attributes_for(:member, name:"Tiago", email:"tiago@gmail.com", campaign: @campaign)
         put :update, params: {id: member.id, member: @new_member_attributes}
       end
 
       it "returns http success" do
-        expect(response).to have_http_status(:success)
+       expect(response).to have_http_status(:success)
       end
 
       it "Member have the new attributes" do
@@ -64,8 +56,5 @@ RSpec.describe MembersController, type: :controller do
       end
     
     end  
-
-
   end
-  
 end

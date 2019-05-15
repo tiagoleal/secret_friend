@@ -54,6 +54,7 @@ gem 'sidekiq'
 group :test do
   gem 'factory_bot_rails'
   gem 'ffaker'
+  gem 'fuubar'
 end
 
 group :development, :test do
