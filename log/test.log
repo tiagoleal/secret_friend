@@ -23291,3 +23291,126 @@ CampaignMailer#raffle_error: processed outbound mail in 20.3ms
   Rendered campaign_mailer/raffle_error.html.inky within layouts/mailer (13.0ms)
 CampaignMailer#raffle_error: processed outbound mail in 14.6ms
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "james_kris@swaniawskikuhic.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "james_kris@swaniawskikuhic.name"], ["encrypted_password", "$2a$04$lbxEsljLvTIeh.xQKTkGC.EhkBEF5Z5zDkz/42BsUFw14WCrApUVC"], ["name", "sunt"], ["created_at", "2019-05-16 23:48:06.972143"], ["updated_at", "2019-05-16 23:48:06.972143"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (1.2ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 953], ["title", "et"], ["description", "Consequatur ipsam et sit minus iusto sunt."], ["status", 0], ["created_at", "2019-05-16 23:48:06.994888"], ["updated_at", "2019-05-16 23:48:06.994888"], ["event_date", "2016-09-14 00:00:00"], ["event_hour", "4"], ["location", " Jacintoshire, 31115 Cruickshank Mountain"]]
+  [1m[36mMember Create (0.8ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 739], ["name", "sunt"], ["email", "james_kris@swaniawskikuhic.name"], ["created_at", "2019-05-16 23:48:06.997323"], ["updated_at", "2019-05-16 23:48:06.997323"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 739], ["name", "quo"], ["email", "jessika.gaylord@zboncak.name"], ["created_at", "2019-05-16 23:48:07.000026"], ["updated_at", "2019-05-16 23:48:07.000026"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 739], ["name", "autem"], ["email", "ema@wintheiser.com"], ["created_at", "2019-05-16 23:48:07.001950"], ["updated_at", "2019-05-16 23:48:07.001950"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering campaign_mailer/raffle.html.inky within layouts/mailer
+  Rendered campaign_mailer/raffle.html.inky within layouts/mailer (15.6ms)
+  Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+  Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.2ms)
+CampaignMailer#raffle: processed outbound mail in 25.6ms
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nathaniel@murray.co.uk"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "nathaniel@murray.co.uk"], ["encrypted_password", "$2a$04$u66zx8LhKloAU3C5RErUsOzXD68ThksaKzKFFm8PyIRjPWQbiyoa."], ["name", "quis"], ["created_at", "2019-05-16 23:48:07.036691"], ["updated_at", "2019-05-16 23:48:07.036691"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.6ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 954], ["title", "esse"], ["description", "Amet expedita voluptatibus sed omnis harum."], ["status", 0], ["created_at", "2019-05-16 23:48:07.040756"], ["updated_at", "2019-05-16 23:48:07.040756"], ["event_date", "2018-07-28 00:00:00"], ["event_hour", "20"], ["location", " Flatleyside, 7720 Beer Forest"]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 740], ["name", "quis"], ["email", "nathaniel@murray.co.uk"], ["created_at", "2019-05-16 23:48:07.042438"], ["updated_at", "2019-05-16 23:48:07.042438"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 740], ["name", "cupiditate"], ["email", "shila_bode@dickinson.ca"], ["created_at", "2019-05-16 23:48:07.044738"], ["updated_at", "2019-05-16 23:48:07.044738"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 740], ["name", "commodi"], ["email", "anderson@fritsch.biz"], ["created_at", "2019-05-16 23:48:07.047000"], ["updated_at", "2019-05-16 23:48:07.047000"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering campaign_mailer/raffle.html.inky within layouts/mailer
+  Rendered campaign_mailer/raffle.html.inky within layouts/mailer (13.7ms)
+  Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+  Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.0ms)
+CampaignMailer#raffle: processed outbound mail in 16.3ms
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kayleen@bashirian.us"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kayleen@bashirian.us"], ["encrypted_password", "$2a$04$zrdcjICuPxX3r8IM4qbxK.BDhZvlGiKLxRSNbNoru6YsiUE93rRqS"], ["name", "repudiandae"], ["created_at", "2019-05-16 23:48:07.073078"], ["updated_at", "2019-05-16 23:48:07.073078"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.8ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 955], ["title", "architecto"], ["description", "Repudiandae non magnam in illo perspiciatis officia amet soluta."], ["status", 0], ["created_at", "2019-05-16 23:48:07.078378"], ["updated_at", "2019-05-16 23:48:07.078378"], ["event_date", "2018-08-21 00:00:00"], ["event_hour", "22"], ["location", " Normanbury, 44779 Autumn Fields"]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 741], ["name", "repudiandae"], ["email", "kayleen@bashirian.us"], ["created_at", "2019-05-16 23:48:07.080522"], ["updated_at", "2019-05-16 23:48:07.080522"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.7ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 741], ["name", "inventore"], ["email", "val_fahey@keebler.ca"], ["created_at", "2019-05-16 23:48:07.083388"], ["updated_at", "2019-05-16 23:48:07.083388"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 741], ["name", "omnis"], ["email", "shiela_weimann@powlowski.name"], ["created_at", "2019-05-16 23:48:07.085999"], ["updated_at", "2019-05-16 23:48:07.085999"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering campaign_mailer/raffle.html.inky within layouts/mailer
+  Rendered campaign_mailer/raffle.html.inky within layouts/mailer (13.5ms)
+  Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+  Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.0ms)
+CampaignMailer#raffle: processed outbound mail in 16.3ms
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lou_mckenzie@christiansen.ca"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "lou_mckenzie@christiansen.ca"], ["encrypted_password", "$2a$04$vRluV2C9doNyLZVvyATTEO790Z95Z0dxz4RHPvUDdKG/cvZJFS6CS"], ["name", "assumenda"], ["created_at", "2019-05-16 23:48:07.110483"], ["updated_at", "2019-05-16 23:48:07.110483"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.7ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 956], ["title", "aliquid"], ["description", "Dignissimos beatae non nobis omnis consequatur ad perferendis."], ["status", 0], ["created_at", "2019-05-16 23:48:07.114754"], ["updated_at", "2019-05-16 23:48:07.114754"], ["event_date", "2018-08-13 00:00:00"], ["event_hour", "2"], ["location", " Lake Cecil, 82786 Jerde Loaf"]]
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 742], ["name", "assumenda"], ["email", "lou_mckenzie@christiansen.ca"], ["created_at", "2019-05-16 23:48:07.116585"], ["updated_at", "2019-05-16 23:48:07.116585"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 742], ["name", "voluptates"], ["email", "fernande@fahey.us"], ["created_at", "2019-05-16 23:48:07.119132"], ["updated_at", "2019-05-16 23:48:07.119132"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.3ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 742], ["name", "ipsa"], ["email", "carter@satterfieldcole.ca"], ["created_at", "2019-05-16 23:48:07.121172"], ["updated_at", "2019-05-16 23:48:07.121172"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering campaign_mailer/raffle.html.inky within layouts/mailer
+  Rendered campaign_mailer/raffle.html.inky within layouts/mailer (13.9ms)
+  Rendering campaign_mailer/raffle.text.erb within layouts/mailer
+  Rendered campaign_mailer/raffle.text.erb within layouts/mailer (0.0ms)
+CampaignMailer#raffle: processed outbound mail in 16.9ms
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "inell_vonrueden@hand.us"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "inell_vonrueden@hand.us"], ["encrypted_password", "$2a$04$68z16UjBRDSZ5SyDYJWBA.ttrs1tIHiS65bgCrkXsyOgnWg9RPMQ6"], ["name", "temporibus"], ["created_at", "2019-05-16 23:48:07.146431"], ["updated_at", "2019-05-16 23:48:07.146431"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.8ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 957], ["title", "autem"], ["description", "Velit natus itaque nostrum velit doloremque dolorem nesciunt dolorem."], ["status", 0], ["created_at", "2019-05-16 23:48:07.150785"], ["updated_at", "2019-05-16 23:48:07.150785"], ["event_date", "2019-03-04 00:00:00"], ["event_hour", "1"], ["location", " South Rainaton, 855 Jeana Vista"]]
+  [1m[36mMember Create (0.6ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 743], ["name", "temporibus"], ["email", "inell_vonrueden@hand.us"], ["created_at", "2019-05-16 23:48:07.152739"], ["updated_at", "2019-05-16 23:48:07.152739"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 743], ["name", "non"], ["email", "elida@jenkins.us"], ["created_at", "2019-05-16 23:48:07.155347"], ["updated_at", "2019-05-16 23:48:07.155347"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.3ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 743], ["name", "veniam"], ["email", "neta@ernserbashirian.co.uk"], ["created_at", "2019-05-16 23:48:07.157363"], ["updated_at", "2019-05-16 23:48:07.157363"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering campaign_mailer/raffle_error.html.inky within layouts/mailer
+  Rendered campaign_mailer/raffle_error.html.inky within layouts/mailer (13.4ms)
+CampaignMailer#raffle_error: processed outbound mail in 18.8ms
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "beryl@fisher.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "beryl@fisher.com"], ["encrypted_password", "$2a$04$mthEMk8nx299kD9m/enSJuqCrNum.TcvNvCQTRltj083aExMnc1F6"], ["name", "nisi"], ["created_at", "2019-05-16 23:48:07.184993"], ["updated_at", "2019-05-16 23:48:07.184993"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.8ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 958], ["title", "et"], ["description", "Inventore provident quaerat consequatur alias facilis."], ["status", 0], ["created_at", "2019-05-16 23:48:07.190886"], ["updated_at", "2019-05-16 23:48:07.190886"], ["event_date", "2017-11-13 00:00:00"], ["event_hour", "11"], ["location", " Lake Chingport, 938 Melony Spur"]]
+  [1m[36mMember Create (0.6ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 744], ["name", "nisi"], ["email", "beryl@fisher.com"], ["created_at", "2019-05-16 23:48:07.193206"], ["updated_at", "2019-05-16 23:48:07.193206"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.6ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 744], ["name", "sed"], ["email", "norman_von@hilperthintz.name"], ["created_at", "2019-05-16 23:48:07.196011"], ["updated_at", "2019-05-16 23:48:07.196011"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 744], ["name", "consequatur"], ["email", "mike@sauerwiegand.com"], ["created_at", "2019-05-16 23:48:07.198747"], ["updated_at", "2019-05-16 23:48:07.198747"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering campaign_mailer/raffle_error.html.inky within layouts/mailer
+  Rendered campaign_mailer/raffle_error.html.inky within layouts/mailer (13.1ms)
+CampaignMailer#raffle_error: processed outbound mail in 14.8ms
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
