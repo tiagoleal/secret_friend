@@ -5,17 +5,16 @@ class CampaignRaffleJob < ApplicationJob
   #process the queue
   def perform(campaign)
     results = RaffleService.new(campaign).call
-
     campaign.members.each{|m| m.set_pixel} 
-    results.each do |r|
-      CampaignMailer.raffle(campaign, r.first, r.last).deliver_now
+    begin
+      results.each do |r|
+        CampaignMailer.raffle(campaign, r.first, r.last).deliver_now
+      end
+    rescue
+      #send mail to owner of campagn (desafio)
+      CampaignMailer.raffle_error(campaign).deliver_now #now send
     end
-    campaign.update(status: :finished)
-
-
-    # if results == false
-    #   #send mail to owner of campagn (desafio)
-    # end
-
+    campaign.update(status: :finished)  
   end
 end
+
