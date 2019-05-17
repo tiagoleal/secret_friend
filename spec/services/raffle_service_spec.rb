@@ -52,7 +52,6 @@ describe RaffleService do
       before(:each) do
         create(:member, campaign: @campaign)
         @campaign.reload
-
         @response = RaffleService.new(@campaign).call
       end
 
