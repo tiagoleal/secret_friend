@@ -38,9 +38,14 @@ describe RaffleService do
       end
 
       it "a member x don't get a member y that get the member x" do
-        # Desafio
+        match = {}
+        @results.map { |res| match[res.first.id] = res.last.id }
+        @results.each do |value|
+          member_dst = match[value.first.id]
+          member_src = match[member_dst]
+          expect(value.first.id).not_to eq(member_src)
+        end
       end
-
     end
 
     context "when don't has more then two members" do
