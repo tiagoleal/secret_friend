@@ -10,9 +10,7 @@ RSpec.describe CampaignRaffleJob, type: :job do
   end
 
   describe "#perform" do
-
     context "when create the job" do
-      
       it "Returns job successfully scheduled" do 
         ActiveJob::Base.queue_adapter = :test
         expect {

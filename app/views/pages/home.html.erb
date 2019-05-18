@@ -1,10 +1,37 @@
-<div class="row home">
-  <div class="center">
-    <h4 class="title">Surpreenda no Amigo Secreto</h4>
-    <h5 class="subtitle">Crie a sua brincadeira apenas com o nome e email dos seus amigos</h5>
-    <h5 class="subtitle2">Rápido, fácil e garantido <i class="material-icons home-icon">favorite</i></h5>
-    <%= form_tag("/campaigns", method: "post") do %>
-      <%= submit_tag("Criar Agora", class: "waves-effect waves-light btn home-button") %>
-    <% end %>
+<div class="container">
+  <% if @campaign.count > 0 %>
+    <h5 class="title">Ultimas 10 Campanhas</h5>
+    <table class="highlight responsive-table">
+      <thead>
+        <tr>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Local</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @campaign.each do |camp| %>
+          <tr>
+            <td><%= camp.event_date.strftime("%d/%m/%Y") %></td>
+            <td><%= camp.event_hour %></td>
+            <td><%= camp.title %></td>
+            <td><%= camp.description %></td>
+            <td><%= camp.location %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="row home">
+    <div class="center">
+      <h4 class="title">Surpreenda no Amigo Secreto</h4>
+      <h5 class="subtitle">Crie a sua brincadeira apenas com o nome e email dos seus amigos</h5>
+      <h5 class="subtitle2">Rápido, fácil e garantido <i class="material-icons home-icon">favorite</i></h5>
+      <%= form_tag("/campaigns", method: "post") do %>
+        <%= submit_tag("Criar Agora", class: "waves-effect waves-light btn home-button") %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -7,6 +7,24 @@ $(document).on 'turbolinks:load', ->
     if valid_email($( "#member_email" ).val()) && $( "#member_name" ).val() != ""
       $('.new_member').submit()
 
+  $('.member_update').on 'change', (e) ->
+    member_id = e.currentTarget.id.replace("member_","")
+    $.ajax '/members/' + member_id,
+      type: 'PUT',
+      dataType: 'json',
+      data: { 
+        member: {
+          name:$("#name_"+member_id).val(),
+          email:$("#email_"+member_id).val(),
+          campaign_id: $("input[name='member[campaign_id]']").val()
+        } 
+      }
+      success: (data, text, jqXHR) -> 
+        M.toast({html: '<span>Membro atualizado com sucesso <i class="tiny material-icons">check_circle</i></span>', displayLength: '4000', classes:'green'})
+      error: (jqXHR, textStatus, errorThrown) ->
+        M.toast({html: '<span>Problema ao atualizar membro <i class="tiny material-icons">cancel</i></span>', displayLength: '4000', classes:'red' })
+    return false
+
   $('body').on 'click', 'a.remove_member', (e) ->
     $.ajax '/members/'+ e.currentTarget.id,
         type: 'DELETE'
