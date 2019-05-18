@@ -26518,3 +26518,71 @@ CampaignMailer#raffle_error: processed outbound mail in 14.8ms
   [1m[36mCampaign Load (0.3ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
 [ActiveJob] Enqueued CampaignRaffleJob (Job ID: b340dc2f-21e0-4add-8f30-cbd4cb27f543) to Sidekiq(emails) with arguments: #<GlobalID:0x0000559a34ef61a8 @uri=#<URI::GID gid://secret-friend/Campaign/873>>
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (5.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "johna@sengerblock.ca"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "johna@sengerblock.ca"], ["encrypted_password", "$2a$04$msgtBTOPjGbIgGjsDglDzuIX11o0xMXa3T61mXvIWOtUSpQ23S4JO"], ["name", "sint"], ["created_at", "2019-05-17 23:11:47.913246"], ["updated_at", "2019-05-17 23:11:47.913246"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (3.4ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1088], ["title", "incidunt"], ["description", "A cum maiores saepe aut in ea explicabo."], ["status", 0], ["created_at", "2019-05-17 23:11:47.946279"], ["updated_at", "2019-05-17 23:11:47.946279"], ["event_date", "2019-03-06 00:00:00"], ["event_hour", "22"], ["location", " Wolffchester, 498 Ziemann Spur"]]
+  [1m[36mMember Create (2.0ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 874], ["name", "sint"], ["email", "johna@sengerblock.ca"], ["created_at", "2019-05-17 23:11:47.951141"], ["updated_at", "2019-05-17 23:11:47.951141"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 874], ["name", "rem"], ["email", "tiffaney@bergstrom.name"], ["created_at", "2019-05-17 23:11:47.955266"], ["updated_at", "2019-05-17 23:11:47.955266"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCampaign Load (0.2ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 2447de88-7d1b-4dd9-83d9-659a084da5cc) to Test(emails) with arguments: #<GlobalID:0x00005650d3fcda58 @uri=#<URI::GID gid://secret-friend/Campaign/874>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 29f992c5-2f9d-4ce3-bc8a-399a47492047) to Test(emails) with arguments: "raffle"
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCampaign Load (0.7ms)[0m  [1m[34mSELECT  "campaigns".* FROM "campaigns" ORDER BY "campaigns"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 52c734ea-c388-43fe-920c-4386180db323) to Test(emails)
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: ae9baa83-e971-407d-80cf-19d21df2e110) to Test(emails) with arguments: "raffle"
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "monte@langworthdibbert.info"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "monte@langworthdibbert.info"], ["encrypted_password", "$2a$04$3.GhjMR3V3ry45xex1rdEOchANKo48OmveEu0EwYEH.gQk5.ufKPq"], ["name", "error"], ["created_at", "2019-05-17 23:13:39.955638"], ["updated_at", "2019-05-17 23:13:39.955638"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.8ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1089], ["title", "possimus"], ["description", "Magnam voluptatibus explicabo enim sed numquam ab."], ["status", 0], ["created_at", "2019-05-17 23:13:39.984711"], ["updated_at", "2019-05-17 23:13:39.984711"], ["event_date", "2019-03-30 00:00:00"], ["event_hour", "9"], ["location", " Hicklefort, 2268 Paula Neck"]]
+  [1m[36mMember Create (0.6ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 875], ["name", "error"], ["email", "monte@langworthdibbert.info"], ["created_at", "2019-05-17 23:13:39.986737"], ["updated_at", "2019-05-17 23:13:39.986737"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 6789ecb0-4817-4e9a-bd99-21d6b4648074) to Test(emails) with arguments: #<GlobalID:0x000055f71baf16e0 @uri=#<URI::GID gid://secret-friend/Campaign/875>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: cec53464-4396-489f-af1b-d1a57b85a7f6) to Test(emails) with arguments: "raffle"
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tyra.greenholt@bartoletti.name"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "tyra.greenholt@bartoletti.name"], ["encrypted_password", "$2a$04$8gnfKEwgy3s/xfPcU4bQDeBYji0FSuhOxU4352QUZHJzJ802hCVJe"], ["name", "consequatur"], ["created_at", "2019-05-17 23:13:58.052203"], ["updated_at", "2019-05-17 23:13:58.052203"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (0.9ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1090], ["title", "omnis"], ["description", "Debitis omnis adipisci esse voluptatibus perspiciatis expedita."], ["status", 0], ["created_at", "2019-05-17 23:13:58.085816"], ["updated_at", "2019-05-17 23:13:58.085816"], ["event_date", "2018-02-06 00:00:00"], ["event_hour", "6"], ["location", " Lefort, 469 Swift Place"]]
+  [1m[36mMember Create (0.7ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 876], ["name", "consequatur"], ["email", "tyra.greenholt@bartoletti.name"], ["created_at", "2019-05-17 23:13:58.088287"], ["updated_at", "2019-05-17 23:13:58.088287"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 876], ["name", "dignissimos"], ["email", "dwight@kovacek.co.uk"], ["created_at", "2019-05-17 23:13:58.091784"], ["updated_at", "2019-05-17 23:13:58.091784"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 27b2be92-e1e8-4370-a424-13ab7f8f20e0) to Test(emails) with arguments: #<GlobalID:0x000055cfe809d068 @uri=#<URI::GID gid://secret-friend/Campaign/876>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: f3b010c6-c3fc-4444-8b6e-34099d9888f6) to Test(emails) with arguments: "raffle"
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rosena_langosh@gerholdkutch.info"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "rosena_langosh@gerholdkutch.info"], ["encrypted_password", "$2a$04$AMuk3RDSmYo/wpSxcHKnW.fGRZvKEOUJSwME1nOuUoFxwhywm0PmW"], ["name", "et"], ["created_at", "2019-05-17 23:14:40.873861"], ["updated_at", "2019-05-17 23:14:40.873861"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCampaign Create (1.1ms)[0m  [1m[32mINSERT INTO "campaigns" ("user_id", "title", "description", "status", "created_at", "updated_at", "event_date", "event_hour", "location") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1091], ["title", "iusto"], ["description", "Et consequatur itaque dicta non incidunt."], ["status", 0], ["created_at", "2019-05-17 23:14:40.896199"], ["updated_at", "2019-05-17 23:14:40.896199"], ["event_date", "2017-02-17 00:00:00"], ["event_hour", "8"], ["location", " Gregoriomouth, 70800 Parker Mill"]]
+  [1m[36mMember Create (0.9ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 877], ["name", "et"], ["email", "rosena_langosh@gerholdkutch.info"], ["created_at", "2019-05-17 23:14:40.898558"], ["updated_at", "2019-05-17 23:14:40.898558"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("campaign_id", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["campaign_id", 877], ["name", "iste"], ["email", "lizabeth.hyatt@orn.info"], ["created_at", "2019-05-17 23:14:40.901414"], ["updated_at", "2019-05-17 23:14:40.901414"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 6f108cb6-47a0-4853-beb8-16196e5c3c2c) to Test(emails) with arguments: #<GlobalID:0x0000557ac9aab290 @uri=#<URI::GID gid://secret-friend/Campaign/877>>
+[ActiveJob] Enqueued CampaignRaffleJob (Job ID: 76e22ee7-d70a-4042-a3e0-58410504fd9c) to Test(emails) with arguments: "raffle"
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

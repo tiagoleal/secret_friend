@@ -99,7 +99,7 @@
     <div class="col s12 center">
       <div class="col s6 m3 offset-m3 l2 offset-l4">
         <%= form_for @campaign, method: 'delete',remote: true,  html: {class: 'remove_campaign'} do |f| %>
-          <button type='submit' class="waves-effect waves-light btn grey">Remover</button>
+          <button data-target="modal-delete" type='submit' class="waves-effect waves-light grey btn modal-trigger">Remover</button>
         <% end %>
       </div>
       <div class="col s6 m3 l3">
@@ -111,4 +111,15 @@
   </div>
 </div>
 
-
+  <!-- Modal Structure -->
+  <div id="modal-delete" class="modal grey lighten-3">
+    <div class="modal-content">
+      <div class="card-panel red darken-2">
+        <h5 class="white-text text-red-2">Deletar Campanha</h5>
+      </div>
+      <p class="black-text">A Campanha: <b><%= @campaign.title %></b> será excluida!</p>
+    </div>
+    <div class="modal-footer grey lighten-3 delete">
+      <a class="modal-close waves-effect waves-light btn-small red"><i class="material-icons left">delete</i>Delete</a>
+    </div>
+  </div>

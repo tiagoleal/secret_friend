@@ -8,6 +8,12 @@
 #aviso
 # M.toast({html: '<span>Aviso</span><i class="tiny material-icons"  style="margin-left:10px;">error</i>', displayLength: '4000', classes:'orange' })
 $(document).on 'turbolinks:load', ->
+  $('.modal').modal()
+
+  $('.delete').on 'click', (e) ->
+    M.toast({html: '<span>Campanha excluída com sucesso <i class="tiny material-icons">check_circle</i></span>', displayLength: '4000', classes:'green' })
+    $('.remove_campaign').submit()
+  
   $('.update_campaign input').bind 'blur', ->
     $('.update_campaign').submit()
 

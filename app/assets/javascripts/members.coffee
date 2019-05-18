@@ -34,7 +34,6 @@ $(document).on 'turbolinks:load', ->
           M.toast({html: '<span>Problema na hora de incluir membro <i class="tiny material-icons">cancel</i></span>', displayLength: '4000', classes:'red' })
     return false
 
-
 valid_email = (email) ->
   /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)
 
