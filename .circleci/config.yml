@@ -16,15 +16,15 @@ jobs:
           PG_USER: postgres
           RAILS_ENV: test
           RACK_ENV: test
-          
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/postgres:10
         environment:
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_USER: postgres
           POSTGRES_DB: secret_friend_test
-          
 
     working_directory: ~/repo
 
@@ -52,7 +52,7 @@ jobs:
 
       # Database setup
       - run: bundle exec rails db:drop db:create db:migrate db:schema:load --trace
-    
+
       # run tests!
       - run:
           name: run tests
