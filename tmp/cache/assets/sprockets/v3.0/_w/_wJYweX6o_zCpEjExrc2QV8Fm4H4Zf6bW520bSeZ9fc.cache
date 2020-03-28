@@ -1,9 +1,0 @@
-I"Œ(function() {
-  $(document).on('turbolinks:load', function() {
-    return $('.button-collapse').sideNav();
-  });
-
-  return;
-
-}).call(this);
-:ET
